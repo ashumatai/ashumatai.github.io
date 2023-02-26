@@ -164,5 +164,5 @@
 
 			}
 		});
-
+	$('#header').css('overflow', 'hidden');
 })(jQuery);
