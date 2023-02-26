@@ -11,7 +11,8 @@
 		$header = $('#header'),
 		$titleBar = null,
 		$nav = $('#nav'),
-		$wrapper = $('#wrapper');
+		$wrapper = $('#wrapper'),
+		$ageSpan = $('#age-span');
 
 	// Breakpoints.
 		breakpoints({
@@ -27,6 +28,14 @@
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
+			var today = new Date();
+			var birthDate = new Date("1998/03/30");
+			var age = today.getFullYear() - birthDate.getFullYear();
+			var m = today.getMonth() - birthDate.getMonth();
+			if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+				age--;
+			}
+			$ageSpan.text(age.toString());
 		});
 
 	// Tweaks/fixes.
